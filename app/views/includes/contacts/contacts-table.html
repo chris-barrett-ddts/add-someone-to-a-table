@@ -18,6 +18,8 @@
 ]) %}
 {% endfor %}
 
+{{contactList|dump}}
+
 {# create the table and reference the rows array#}
 {{ govukTable({
   caption: "Contacts table",
@@ -34,5 +36,5 @@
       text: "Action"
     }
   ],
-  rows: contactList
+  rows: contactList| sort(attribute='0.text')
 }) }}
